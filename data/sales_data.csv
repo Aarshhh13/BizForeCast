@@ -1,0 +1,97 @@
+"""
+generate_sample_data.py - Create Realistic Sample Sales Data
+BizForeCast: Small Business Sales Demand Forecasting System
+
+Run this FIRST if you don't have real sales data:
+    python generate_sample_data.py
+
+This creates data/sales_data.csv with 3 sample products
+over 2 years, including:
+  - Weekly patterns (weekends vs weekdays)
+  - Monthly seasonality (summer/winter peaks)
+  - Random noise (realistic variation)
+  - An upward trend (business is growing!)
+"""
+
+import os
+import numpy as np
+import pandas as pd
+
+
+def generate_sales_data(
+    start_date="2022-01-01",
+    end_date="2023-12-31",
+    products=("Product_A", "Product_B", "Product_C"),
+    seed=42,
+):
+    """
+    Generate synthetic but realistic daily sales data for multiple products.
+    Each product has different base sales, seasonality, and noise patterns.
+    """
+    np.random.seed(seed)
+    os.makedirs("data", exist_ok=True)
+
+    dates = pd.date_range(start=start_date, end=end_date, freq="D")
+    records = []
+
+    # Product configurations: (base_sales, trend_factor, noise_level, seasonal_strength)
+    product_configs = {
+        "Product_A": (100, 0.05, 15, 30),   # Steady high seller, moderate growth
+        "Product_B": (60,  0.10, 10, 50),   # Growing product with strong seasonality
+        "Product_C": (40,  0.02, 20, 10),   # Stable niche product, high noise
+    }
+
+    for product_id in products:
+        base, trend, noise, seasonal_amp = product_configs.get(product_id, (80, 0.05, 15, 25))
+        n_days = len(dates)
+
+        for i, date in enumerate(dates):
+            # Long-term upward trend
+            trend_value = base + trend * i
+
+            # Weekly pattern: weekends sell more (0=Mon, 6=Sun)
+            day_of_week = date.dayofweek
+            weekly_factor = {0: 0.85, 1: 0.90, 2: 0.95, 3: 1.00, 4: 1.10, 5: 1.30, 6: 1.25}.get(day_of_week, 1.0)
+
+            # Yearly seasonality (peaks in summer and December)
+            day_of_year = date.dayofyear
+            seasonal_value = seasonal_amp * np.sin(2 * np.pi * day_of_year / 365)
+
+            # Monthly bonus in December (holiday season)
+            holiday_bonus = 20 if date.month == 12 else 0
+
+            # Random noise
+            noise_value = np.random.normal(0, noise)
+
+            # Final sales value (ensure non-negative)
+            sales = max(0, trend_value * weekly_factor + seasonal_value + holiday_bonus + noise_value)
+
+            records.append({
+                "date": date.strftime("%Y-%m-%d"),
+                "product_id": product_id,
+                "sales": round(sales, 2),
+            })
+
+    df = pd.DataFrame(records)
+    output_path = "data/sales_data.csv"
+    df.to_csv(output_path, index=False)
+
+    print(f"✅ Sample data created: {output_path}")
+    print(f"   Rows: {len(df)}")
+    print(f"   Products: {df['product_id'].nunique()}")
+    print(f"   Date range: {df['date'].min()} → {df['date'].max()}")
+    print(f"\n   Average daily sales per product:")
+    for pid, group in df.groupby("product_id"):
+        print(f"   {pid}: {group['sales'].mean():.1f} units/day")
+
+    return df
+
+
+if __name__ == "__main__":
+    print("=" * 50)
+    print("  BizForeCast — Generating Sample Data")
+    print("=" * 50 + "\n")
+    df = generate_sales_data()
+    print("\nFirst 5 rows of generated data:")
+    print(df.head())
+    print("\nNow run: python train_model.py")
