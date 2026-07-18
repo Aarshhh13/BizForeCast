@@ -107,4 +107,4 @@ def preprocess(filepath="data/sales_data.csv"):
 if __name__ == "__main__":
     df = preprocess()
     print("\nSample of processed data:")
-    print(df.head())
+    print(df.head())git add 
