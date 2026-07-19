@@ -31,7 +31,8 @@ html,body,[class*="css"]{font-family:'Inter',sans-serif;}
 .nbr-logo span{color:#4361ee;}
 .nbr-links{display:flex;gap:4px;flex-wrap:wrap;}
 .nbl{font-size:12px;font-weight:500;color:#a0aec0;padding:5px 11px;
-     border-radius:6px;cursor:pointer;transition:all .15s;white-space:nowrap;}
+     border-radius:6px;cursor:pointer;transition:all .15s;white-space:nowrap;
+     text-decoration:none;}
 .nbl:hover,.nbl.on{background:rgba(67,97,238,.2);color:#90cdf4;}
 
 /* ─ Section header ─ */
