@@ -48,7 +48,7 @@ with lc2:
       <div class="kl">Source Code</div>
       <a href="https://github.com/Aarshhh13/BizForeCast" target="_blank"
          style="font-size:13px;color:#4361ee;text-decoration:none;font-weight:600;">
-        github.com/your-username/BizForeCast ↗
+        github.com/Aarshhh13/BizForeCast ↗
       </a>
     </div>""", unsafe_allow_html=True)
 with lc3:
