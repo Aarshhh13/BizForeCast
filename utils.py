@@ -117,10 +117,16 @@ def inject_css():
 
 
 def navbar(active=""):
-    pages = [("🏠","Home"),("📊","Dashboard"),("🤖","Models"),("ℹ️","About")]
+    pages = [
+        ("🏠", "Home",      "/"),
+        ("📊", "Dashboard", "/Dashboard"),
+        ("🤖", "Models",    "/Models"),
+        ("ℹ️",  "About",    "/About"),
+    ]
     links = "".join(
-        f'<span class="nbl{" on" if label==active else ""}">{icon} {label}</span>'
-        for icon, label in pages
+        f'<a href="{url}" target="_self" class="nbl{" on" if label==active else ""}">'
+        f'{icon} {label}</a>'
+        for icon, label, url in pages
     )
     st.markdown(
         f'<div class="nbr"><div class="nbr-logo">Biz<span>Fore</span>Cast</div>'
@@ -128,7 +134,6 @@ def navbar(active=""):
         unsafe_allow_html=True,
     )
     st.markdown("<div style='margin-top:1.5rem'></div>", unsafe_allow_html=True)
-
 
 def section(title, badge=""):
     b = f'<span class="sh-b">{badge}</span>' if badge else ""
