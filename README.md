@@ -108,7 +108,7 @@ set is automatically selected as the active model.
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/your-username/BizForeCast.git
+git clone https://github.com/Aarshhh13/BizForeCast.git
 cd BizForeCast
 ```
 
