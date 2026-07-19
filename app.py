@@ -169,7 +169,7 @@ st.markdown("""
 </div>
 <p style="text-align:center;color:#a0aec0;font-size:12px;margin-top:1.5rem;">
   BizForeCast &nbsp;·&nbsp; Python · XGBoost · LightGBM · Streamlit &nbsp;·&nbsp;
-  <a href="https://github.com/your-username/BizForeCast"
+  <a href="https://github.com/Aarshhh13/BizForeCast"
      style="color:#4361ee;text-decoration:none;">GitHub ↗</a>
 </p>
 """, unsafe_allow_html=True)
