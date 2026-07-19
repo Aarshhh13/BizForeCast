@@ -41,7 +41,7 @@ st.markdown("""
               font-weight:700;font-size:14px;text-decoration:none;display:inline-block;">
       Launch Dashboard →
     </a>
-    <a href="https://github.com/your-username/BizForeCast" target="_blank"
+    <a href="https://github.com/Aarshhh13/BizForeCast" target="_blank"
        style="background:rgba(255,255,255,.08);color:#cbd5e0;padding:12px 24px;border-radius:10px;
               font-weight:600;font-size:14px;text-decoration:none;display:inline-block;
               border:1px solid rgba(255,255,255,.15);">
