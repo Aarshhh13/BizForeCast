@@ -219,7 +219,7 @@ with cr:
     colors= ["#4361ee" if d==mx else "#c3d0ff" for d in dow["day"]]
     fig2  = go.Figure(go.Bar(x=dow["day"].str[:3], y=dow["sales"],
                               marker_color=colors,
-                              text=dow["sales"].round(0).astype(int),
+                             text=dow["sales"].round(0).fillna(0).astype(int),
                               textposition="outside"))
     fig2.update_layout(title="Avg by weekday",height=290,plot_bgcolor="#fff",paper_bgcolor="#fff",
                         margin=dict(l=0,r=0,t=30,b=0),showlegend=False,
