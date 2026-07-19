@@ -122,7 +122,7 @@ def navbar(active=""):
         ("🏠", "Home",      "/"),
         ("📊", "Dashboard", "/Dashboard"),
         ("🤖", "Models",    "/Models"),
-        ("ℹ️",  "About",    "/About"),
+       ("ℹ️",  "About",    "/about"),
     ]
     links = "".join(
         f'<a href="{url}" target="_self" class="nbl{" on" if label==active else ""}">'
