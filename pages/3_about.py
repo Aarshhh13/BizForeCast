@@ -46,7 +46,7 @@ with lc2:
     <div class="kc" style="text-align:center;">
       <div style="font-size:1.5rem;margin-bottom:6px;">💻</div>
       <div class="kl">Source Code</div>
-      <a href="https://github.com/your-username/BizForeCast" target="_blank"
+      <a href="https://github.com/Aarshhh13/BizForeCast" target="_blank"
          style="font-size:13px;color:#4361ee;text-decoration:none;font-weight:600;">
         github.com/your-username/BizForeCast ↗
       </a>
@@ -56,7 +56,7 @@ with lc3:
     <div class="kc" style="text-align:center;">
       <div style="font-size:1.5rem;margin-bottom:6px;">🔗</div>
       <div class="kl">Connect</div>
-      <a href="https://linkedin.com/in/your-profile" target="_blank"
+      <a href="https://www.linkedin.com/in/aarsh-shrivastava-95a3262a5/" target="_blank"
          style="font-size:13px;color:#4361ee;text-decoration:none;font-weight:600;">
         LinkedIn Profile ↗
       </a>
